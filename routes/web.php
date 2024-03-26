@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Counter;
+use App\Http\Livewire\DonutChart;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,8 @@ Route::get('/counter', Counter::class);
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/donut-chart', function () {
+    return view('layouts.app', [
+        'content' => Livewire::mount('donut-chart')->html(),
+    ]);
+})->name('donut-chart');
